@@ -1,0 +1,416 @@
+/*  
+Theme Name: Tron Child Theme
+Theme URI: http://support.8bit.io/entries/437065-customization-tron-inspired-standard-theme-2-5-4
+Version: Preview 3
+Description: This is a child theme for Standard Theme 3
+Author: Jason Bradley
+Author URI: http://everchangingmedia.com
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Template: standard
+*/
+
+/* ------------------------------------------------------------------------ Import Standard Styles */
+
+@import url( '../../standard/style.css' );
+
+/* ------------------------------------------------------------------------ Customizations */
+
+//BEGIN LESS
+//Colors
+@white: #fff;
+@black: #000;
+@light-gray: #eee;
+@gray: #f0f0f0;
+@dark-gray: #999;
+@darkest-gray: #333;
+
+@neon-blue: #3bbcd9;
+
+//Variables
+@body-text-color: @white;
+@body-background-color: @white;
+
+@h-color: @neon-blue;
+
+@link-color: @dark-gray;
+@link-color-hover: @dark-gray;
+
+@site-title-color: @white;
+@site-title-color-hover: @neon-blue;
+@site-description-color: @dark-gray;
+@text-shadow-color: @black;
+
+@hover-background-color: @light-gray;
+@link-padding-number: 5px;
+
+@nav-link-color: @white;
+@nav-link-color-hover: @neon-blue;
+@nav-link-color-active: @neon-blue;
+@nav-dropdown-link-color: @dark-gray;
+@nav-dropdown-link-color-hover: @black;
+@nav-bar-background-color: transparent;
+
+@content-background-color: @white;
+@blockquote-background-color: @gray;
+@code-color: @black;
+
+@post-title-color: @white;
+@post-meta-color: @white; 
+@the-time-color: @white;
+
+@post-format-quote-background-color: @neon-blue;
+@post-format-link-background-color-top: @darkest-gray;
+@post-format-link-background-color-bottom: @black;
+
+@pager-background-color: transparent;
+@pager-text-color: @white;
+@pager-background-color-hover: @neon-blue;
+@pager-text-color-hover: @darkest-gray;
+
+@widget-list-link-color: @white;
+@widget-list-link-color-hover: @white;
+
+@border-color: @gray;
+
+@footer-background-color: transparent;
+@footer-widget-title-color: @white;
+@footer-widget-list-link-color: @white;
+@footer-text-widget-text-color: @white;
+
+@subfloor-background-color: transparent;
+@subfloor-credit-color: @white;
+@subfloor-credit-link-color: @white;
+@subfloor-credit-link-color-hover: @neon-blue;
+
+@input-text-focus-color-r: 59;
+@input-text-focus-color-g: 188;
+@input-text-focus-color-b: 217;
+
+//Mixins
+.rounded-corners(@radius: 4px) {
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+}
+
+.hover() {
+	color: @neon-blue;
+	transition: all .25s ease-in-out; 
+	-moz-transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
+	.no-underline();
+}
+
+.gradient-background-fill(@from-color: @white, @to-color: @black) {
+	background-color: @from-color;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@from-color), to(@to-color));
+	background-image: -webkit-linear-gradient(top, @from-color, @to-color);
+	background-image: -moz-linear-gradient(top, @from-color, @to-color);
+	background-image: -o-linear-gradient(top, @from-color, @to-color);
+	background-image: -ms-linear-gradient(top, @from-color, @to-color);
+	background-image: linear-gradient(top, @from-color, @to-color);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@from-color', EndColorStr='@to-color');
+}
+
+.gradient-background-fill-important(@from-color: @white, @to-color: @black) {
+	background-color: @from-color !important;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@from-color), to(@to-color)) !important;
+	background-image: -webkit-linear-gradient(top, @from-color, @to-color) !important;
+	background-image: -moz-linear-gradient(top, @from-color, @to-color) !important;
+	background-image: -o-linear-gradient(top, @from-color, @to-color) !important;
+	background-image: -ms-linear-gradient(top, @from-color, @to-color) !important;
+	background-image: linear-gradient(top, @from-color, @to-color) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@from-color', EndColorStr='@to-color') !important;
+}
+
+.no-shadow() {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.to-uppercase() {
+	text-transform: uppercase;
+}
+
+.no-underline() {
+	text-decoration: none;
+}
+// END LESS
+
+/* Body */
+body { 
+	color: @body-text-color;
+	background: #000 url(images/bg.jpg) top center no-repeat; 
+	font-family: helvetica, sans-serif;
+}
+
+a { 
+	color: @link-color;
+	.no-underline();
+	&:hover { 
+		.hover();
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: @h-color;
+}
+
+/* Header */
+#site-title { 
+	a { 
+		color: @site-title-color; 
+		font-size: 58px; 
+		line-height: 0; 
+		margin-top: 20px; 
+		.no-underline();
+		&:hover { 
+			.no-underline();
+			color: @site-title-color-hover;
+		}
+	}
+
+}
+
+#site-description { 
+	color: @site-description-color; 
+	font-size: 14px; 
+	.to-uppercase(); 
+	line-height: 0; 
+	margin-top: 20px; 
+	.no-underline();
+}
+
+#wrapper {
+	background: url(images/dot-grid.png) repeat;
+}
+
+/* Navigation */
+.navbar {
+	padding-top: 5px;
+	.nav {
+		> li {
+			padding-right: 5px;
+			> a {
+				color: @nav-link-color;
+				text-shadow: none;
+				&:hover {
+					.hover();
+				}
+			}
+		}
+	}
+	.dropdown-menu a {
+		color: @nav-dropdown-link-color;
+		&:hover {
+			color: @nav-dropdown-link-color-hover;
+			.hover();
+		}
+	}
+}
+
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover {
+    color: @nav-link-color;
+    text-shadow: none;
+    .hover();
+    background: none;
+}
+
+.navbar-inner, .navbar .fill {
+	background-color: @nav-bar-background-color;
+	.no-shadow();
+	background-image: none;
+	filter: none;
+}
+
+/* Post */
+.post-title, .post-title a, .post-title a:visited {
+	color: @post-title-color;
+}
+
+.the-time {
+	color: @the-time-color;
+}
+
+.post-meta {
+	color: @post-meta-color;
+	border-top: none;
+}
+
+.post, #comments, #pings, #no-comments, #respond, #author-box {
+	background: #000 url(images/post-bg.png) top center no-repeat; 
+	border: 1px solid #1a8ba5; 
+	-webkit-box-shadow:0 0 5px @neon-blue; 
+	-moz-box-shadow: 0 0 5px @neon-blue; 
+	box-shadow:0 0 5px @neon-blue;
+}
+
+.post-header {
+	border-bottom: none;
+}
+
+.post.format-quote .post-header {
+	background-color: @post-format-quote-background-color;
+	background-image: url(images/bg-quote.png);
+}
+
+.post.format-link .post-header {
+	.gradient-background-fill(@post-format-link-background-color-top, @post-format-link-background-color-bottom);
+}
+
+.breadcrumb {
+	background: none;
+	border: none;
+}
+
+blockquote {
+	background: @blockquote-background-color;
+	padding: 20px;
+	.rounded-corners();
+}
+
+#commentform code {
+	color: @code-color;
+}
+
+.pager a:hover, .previous-page a:hover, .next-page a:hover {
+	color: @pager-text-color-hover;
+	background: @pager-background-color-hover;
+}
+
+/* Widgets */
+.widget {
+	ul li {
+		border-bottom: solid 1px @border-color;
+		a { 
+			color: @widget-list-link-color; 
+			transition: all .25s ease-in-out; 
+			-moz-transition: all .25s ease-in-out;
+			-webkit-transition: all .25s ease-in-out; 
+			&:hover { 
+				color: @widget-list-link-color-hover; 
+				.no-underline();
+			}
+		}
+	}
+}
+
+/* Influence Widget */
+.thumbnails li {
+	border-bottom: none !important;
+}
+
+.si-individual li {
+	border-bottom: none !important;
+}
+
+/* Activity Widget */
+.tabbed-widget {
+	.nav-tabs {
+		> li {
+			border-bottom: none !important;
+			> a {
+				&:hover {
+					color: @neon-blue !important;
+				}
+			}
+		}
+		> li.active > a {
+		
+		}
+	}
+	.tab-content ul li a {
+		&:hover {
+			color: @neon-blue !important;
+			text-decoration: none !important;
+		}
+	}
+}
+
+.si-total-number {
+	text-shadow: 2px 2px 2px rgba(57, 188, 217, 0.75) !important;
+}
+
+/* Footer */
+#footer {
+	background: url(images/dot-grid.png) repeat;
+	.widget {
+		border: 1px solid #1a8ba5; 
+		-webkit-box-shadow:0 0 5px @neon-blue; 
+		-moz-box-shadow: 0 0 5px @neon-blue; 
+		box-shadow:0 0 5px @neon-blue; 
+		padding: 5px;
+		background: #000 url(images/post-bg.png) top center no-repeat;
+		h4.widget-title {
+			color: @footer-widget-title-color;
+		}
+		ul li {
+			border-bottom: none;
+			a {
+				color: @footer-widget-list-link-color;
+				&:hover {
+					.hover();
+				}
+			}
+		}
+	}
+	.textwidget {
+		color: @footer-text-widget-text-color;
+	}
+}
+
+/* Sub-floor */
+#sub-floor {
+	background: url(images/dot-grid.png) repeat;
+	#credit {
+		color: @subfloor-credit-color;
+		a {
+			color: @subfloor-credit-link-color;
+			&:hover {
+				.hover();
+			}
+		}
+	}
+}
+
+/* Misc */
+input:focus,
+textarea:focus {
+  border-color: rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.075), 0 0 8px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.075), 0 0 8px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.6);
+          box-shadow: inset 0 1px 1px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.075), 0 0 8px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.6);
+}
+
+/* ------------------------------------------------------------------------ Media Queries */
+
+/* Smartphones */
+@media (max-width: 480px) {
+
+}
+
+/* Tablet and Mobile */
+@media (max-width: 979px) {	
+			
+}
+
+/* Mobile to Tablet */
+@media only screen and (max-width: 767px) {
+	
+}
+
+/* Landscape Tablets */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+
+/* Desktop */
+@media (min-width: 980px) {
+	
+}
+
